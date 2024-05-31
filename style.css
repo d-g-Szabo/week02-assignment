@@ -1,3 +1,49 @@
+@import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
+
 * {
-  background-color: peru;
+  background-color: black;
+  box-sizing: border-box;
+}
+
+button {
+  all: unset;
+}
+
+body {
+  position: relative;
+}
+
+.image-slider {
+  position: absolute;
+  top: 3vh;
+  left: 50vw;
+  display: flex;
+  align-items: center;
+  overflow: scroll;
+  width: 400px;
+
+  /* border-style: solid;
+  border-color: aliceblue; */
+}
+
+.image-slider img {
+  height: 70px;
+  object-fit: cover;
+  object-position: center center;
+  margin: 3px;
+  cursor: pointer;
+}
+
+body img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center center;
+  /* position: relative; */
+}
+
+:focus {
+  outline: orangered;
+  outline-width: 2px;
+  outline-style: solid;
 }
