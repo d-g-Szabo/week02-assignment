@@ -31,8 +31,18 @@ let images = [
 
 let currentImage = 0;
 
+// Check if there is an image element, if not create one
+if (document.body.lastElementChild.nodeName !== "IMG") {
+  createImageBackground();
+}
+
+createThumbnailImages(images);
+
 // Create big image element
 function createImageBackground() {
+  if (document.body.lastElementChild.nodeName === "IMG") {
+    document.body.lastElementChild.remove();
+  }
   let image = document.createElement("img");
   image.src = images[currentImage].src;
   image.alt = images[currentImage].alt;
@@ -40,22 +50,19 @@ function createImageBackground() {
 }
 
 // Create thumbnails
-function createThumbnailImages() {
-  for (let index = 0; index < images.length; index++) {
-    const image = images[index];
+function createThumbnailImages(imagesParam) {
+  for (let index = 0; index < imagesParam.length; index++) {
+    const image = imagesParam[index];
     let thumbnail = document.createElement("img");
     thumbnail.src = image.src;
     thumbnail.alt = image.alt;
     thumbnail.tabIndex = index + 1; // Set tabindex to allow keyboard navigation, starting form 1 so that it is not 0 bc 0 is last in the tab order
     imageSlider.appendChild(thumbnail);
+    thumbnail.addEventListener("click", () => {
+      currentImage = index;
+      image.src = images[currentImage].src;
+      image.alt = images[currentImage].alt;
+      createImageBackground();
+    });
   }
 }
-
-// Add event listener to each thumbnail image
-thumbnails.forEach((thumbnail, index) => {
-  thumbnail.addEventListener("click", () => {
-    currentImage = index;
-    image.src = images[currentImage].src;
-    image.alt = images[currentImage].alt;
-  });
-});
