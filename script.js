@@ -36,7 +36,27 @@ if (document.body.lastElementChild.nodeName !== "IMG") {
   createImageBackground();
 }
 
-createThumbnailImages(images);
+// todo - Add keyboard navigation (enter key) to the thumbnails
+// todo . media queries
+// todo - Add a loading spinner
+// todo - enable the use of the arrow keys to navigate through the images
+// ! meets expectations:
+// ! Design works on small mobile, and adjusts using media queries to work well on /
+// ! larger desktop screens (eg. above 800px).
+// ! Correct use of alt text attribute for images.
+// ! Optimised large images as JPEGs for slow connections.
+// !    Correct use of event handlers for switching the image.
+// !
+// The document has a set of keyboard events, including keydown. This event receives an object with a .key property containing the key that was pressed. For example, ArrowRight and ArrowLeft.
+
+// 🏹 Use your operating system's voiceover tools or a Screen Reader to have the computer announce the alt text of the selected image.
+
+// ✨ Using role="status" like this will cause the voiceover to read out the content inside whenever it changes. Create a div, select it by id, and then try changing it's .textContext property with JS. <div id="announcer" role="status" aria-live="assertive" aria-atomic="true"></div>
+
+// Check if there are thumbnails, if not create them
+if (imageSlider.firstChild.nodeName !== "IMG") {
+  createThumbnailImages(images);
+}
 
 // Create big image element
 function createImageBackground() {
