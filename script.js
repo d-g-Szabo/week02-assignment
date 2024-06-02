@@ -4,10 +4,11 @@ const thumbnails = document.querySelectorAll(".image-slider img");
 // Create images array, inside array create objects with src and alt properties
 let images = [
   (image1 = {
-    src: "./assets/a green valley with a mountain in the background-4k.jpg",
+    src: "./assets/a-green-valley-with-a-mountain-in-the-background-4k.jpg",
     alt: "a green valley with a mountain in the background",
     srcset:
-      "./assets/a green valley with a mountain in the background-4k.jpg    3500w, ./assets/a green valley with a mountain in the background-1440p.jpg    2500w, ./assets/a green valley with a mountain in the background-1080p.jpg    1500w, ./assets/a green valley with a mountain in the background-hd.jpg    1000w, ./assets/a green valley with a mountain in the background-thumbnail.jpg    150w",
+      "./assets/a-green-valley-with-a-mountain-in-the-background-4k.jpg 3840w, ./assets/a-green-valley-with-a-mountain-in-the-background-1440p.jpg     2560w, ./assets/a-green-valley-with-a-mountain-in-the-background-1080p.jpg 1920w, ./assets/a-green-valley-with-a-mountain-in-the-background-hd.jpg 1366w, ./assets/a-green-valley-with-a-mountain-in-the-background-thumbnail.jpg 125w",
+    size: "(max-width: 126px) 100vw, 125px", //up to 126px width, the image will be taking up 100% of Viewport Width. 125px: This part is saying that if the previous condition is not met, then assume that the image is taking up 125px Width.
   }),
   (image2 = {
     src: "./assets/aerial view of sea and mountain during sunset.jpg",

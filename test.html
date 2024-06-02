@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Image gallery</title>
+  </head>
+  <body>
+    <div class="image-slider">
+      <img
+        src="./assets/a-green-valley-with-a-mountain-in-the-background-4k.jpg"
+        alt="a green valley with a mountain in the background"
+        srcset="
+          ./assets/a-green-valley-with-a-mountain-in-the-background-4k.jpg        3840w,
+          ./assets/a-green-valley-with-a-mountain-in-the-background-1440p.jpg     2560w,
+          ./assets/a-green-valley-with-a-mountain-in-the-background-1080p.jpg     1920w,
+          ./assets/a-green-valley-with-a-mountain-in-the-background-hd.jpg        1366w,
+          ./assets/a-green-valley-with-a-mountain-in-the-background-thumbnail.jpg  125w
+        "
+        sizes="(max-width: 126px) 100vw, 125px"
+      />
+      <!-- images thumbnails here from JS -->
+    </div>
+    <!-- big images here on the whole webpage from JS -->
+    <!-- testing a static image -->
+    <img
+      src="./assets/a-green-valley-with-a-mountain-in-the-background-4k.jpg"
+      alt="a green valley with a mountain in the background"
+      srcset="
+        ./assets/a-green-valley-with-a-mountain-in-the-background-4k.jpg        3840w,
+        ./assets/a-green-valley-with-a-mountain-in-the-background-1440p.jpg     2560w,
+        ./assets/a-green-valley-with-a-mountain-in-the-background-1080p.jpg     1920w,
+        ./assets/a-green-valley-with-a-mountain-in-the-background-hd.jpg        1366w,
+        ./assets/a-green-valley-with-a-mountain-in-the-background-thumbnail.jpg  125w
+      "
+    />
+  </body>
+  <!-- <script src="./script.js"></script> -->
+</html>
