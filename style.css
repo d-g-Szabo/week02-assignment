@@ -51,10 +51,31 @@ body img {
 }
 
 :focus {
-  outline: orangered;
+  outline: lightskyblue;
   outline-width: 2px;
   outline-style: solid;
 }
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(43, 44, 44, 0.815);
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
+
+.prev {
+  left: 10px;
+} /* This will put the prev button 10px from the left side of the screen */
+
+.next {
+  right: 10px;
+} /* This will put the next button 10px from the right side of the screen */
 
 /* For Desktop monitors */
 @media (min-width: 768px) {

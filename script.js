@@ -1,5 +1,7 @@
 const imageSlider = document.querySelector(".image-slider");
 const thumbnails = document.querySelectorAll(".image-slider img");
+const prevButton = document.querySelector(".prev");
+const nextButton = document.querySelector(".next");
 
 // Create images array, inside array create objects with src and alt properties
 let images = [
@@ -46,25 +48,52 @@ let currentImage = 0;
 if (document.body.lastElementChild.nodeName !== "IMG") {
   createImageBackground();
 }
-// todo Optimised large images as JPEGs for slow connections
-// todo Correct use of alt text attribute for images
-// todo - enable the use of the arrow keys to navigate through the images
-// ! meets expectations:
-// ! Design works on small mobile, and adjusts using media queries to work well on larger desktop screens (eg. above 800px).
-// ! Correct use of alt text attribute for images.
-// ! Optimised large images as JPEGs for slow connections.
-// !    Correct use of event handlers for switching the image.
-// !
-// The document has a set of keyboard events, including keydown. This event receives an object with a .key property containing the key that was pressed. For example, ArrowRight and ArrowLeft.
 
-// 🏹 Use your operating system's voiceover tools or a Screen Reader to have the computer announce the alt text of the selected image.
-
-// ✨ Using role="status" like this will cause the voiceover to read out the content inside whenever it changes. Create a div, select it by id, and then try changing it's .textContext property with JS. <div id="announcer" role="status" aria-live="assertive" aria-atomic="true"></div>
+// todo Using role="status" like this will cause the voiceover to read out the content inside whenever it changes. Create a div, select it by id, and then try changing it's .textContext property with JS. <div id="announcer" role="status" aria-live="assertive" aria-atomic="true"></div>
 
 // Check if there are thumbnails, if not create them
 if (imageSlider.firstChild.nodeName !== "IMG") {
   createThumbnailImages(images);
 }
+
+// Add event listener to the next button
+nextButton.addEventListener("click", () => {
+  currentImage++;
+  // Check if the current image is the last image in the array, if so, set the current image to the first image in the array
+  if (currentImage === images.length) {
+    currentImage = 0;
+  }
+  createImageBackground();
+});
+
+// Add event listener to the prev button
+prevButton.addEventListener("click", () => {
+  // Check if the current image is the first image in the array, if so, set the current image to the last image in the array
+  if (currentImage === 0) {
+    currentImage = images.length - 1;
+  } else {
+    currentImage--;
+  }
+  createImageBackground();
+});
+
+// Add event listener to the window to listen for the arrow keys
+window.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowRight") {
+    currentImage++;
+    if (currentImage === images.length) {
+      currentImage = 0;
+    }
+    createImageBackground();
+  } else if (event.key === "ArrowLeft") {
+    if (currentImage === 0) {
+      currentImage = images.length - 1;
+    } else {
+      currentImage--;
+    }
+    createImageBackground();
+  }
+});
 
 // Create big image element
 function createImageBackground() {
@@ -109,21 +138,5 @@ function createThumbnailImages(imagesParam) {
         createImageBackground();
       }
     });
-    // thumbnail.addEventListener("keypress", (event) => {
-    //   if (event.key === "ArrowRight") {
-    //     currentImage = index + 1;
-    //     image.src = images[currentImage].src;
-    //     image.alt = images[currentImage].alt;
-    //     createImageBackground();
-    //   }
-    // });
-    // thumbnail.addEventListener("keypress", (event) => {
-    //   if (event.key === "ArrowLeft") {
-    //     currentImage = index - 1;
-    //     image.src = images[currentImage].src;
-    //     image.alt = images[currentImage].alt;
-    //     createImageBackground();
-    //   }
-    // });
   }
 }
