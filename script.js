@@ -51,6 +51,8 @@ if (document.body.lastElementChild.nodeName !== "IMG") {
 
 // todo Using role="status" like this will cause the voiceover to read out the content inside whenever it changes. Create a div, select it by id, and then try changing it's .textContext property with JS. <div id="announcer" role="status" aria-live="assertive" aria-atomic="true"></div>
 
+// todo Refactor the code to have less repetition. Like eventlisteners for the thumbnails, next and prev buttons. Maybe create a function that takes in the eventlistener and the function to be executed when the event is triggered.
+
 // Check if there are thumbnails, if not create them
 if (imageSlider.firstChild.nodeName !== "IMG") {
   createThumbnailImages(images);
