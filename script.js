@@ -8,23 +8,35 @@ let images = [
     alt: "a green valley with a mountain in the background",
     srcset:
       "./assets/a-green-valley-with-a-mountain-in-the-background-4k.jpg 3840w, ./assets/a-green-valley-with-a-mountain-in-the-background-1440p.jpg     2560w, ./assets/a-green-valley-with-a-mountain-in-the-background-1080p.jpg 1920w, ./assets/a-green-valley-with-a-mountain-in-the-background-hd.jpg 1366w, ./assets/a-green-valley-with-a-mountain-in-the-background-thumbnail.jpg 125w",
-    size: "(max-width: 126px) 100vw, 125px", //up to 126px width, the image will be taking up 100% of Viewport Width. 125px: This part is saying that if the previous condition is not met, then assume that the image is taking up 125px Width.
+    sizes: "(max-width: 126px) 100vw, 125px", //up to 126px width, the image will be taking up 100% of Viewport Width. 125px: This part is saying that if the previous condition is not met, then assume that the image is taking up 125px Width.
   }),
   (image2 = {
-    src: "./assets/aerial view of sea and mountain during sunset.jpg",
+    src: "./assets/aerial-view-of-sea-and-mountain-during-sunset.jpg",
     alt: "aerial view of sea and mountain during sunset",
+    srcset:
+      "./assets/aerial-view-of-sea-and-mountain-during-sunset.jpg 3840w, ./assets/aerial-view-of-sea-and-mountain-during-sunset-1440p.jpg 2560w, ./assets/aerial-view-of-sea-and-mountain-during-sunset-fullhd.jpg 1920w, ./assets/aerial-view-of-sea-and-mountain-during-sunset-hd.jpg 1366w, ./assets/aerial-view-of-sea-and-mountain-during-sunset-thumbnail.jpg 125w",
+    sizes: "(max-width: 126px) 100vw, 125px",
   }),
   (image3 = {
-    src: "./assets/green grass field with trees and white building in distance.jpg",
+    src: "./assets/green-grass.jpg",
     alt: "green grass field with trees and white building in distance",
+    srcset:
+      "./assets/green-grass.jpg 3840w, ./assets/green-grass-1440p.jpg     2560w, ./assets/green-grass-fullhd.jpg 1920w, ./assets/green-grass-hd.jpg 1366w, ./assets/green-grass-thumbnail.jpg 125w",
+    sizes: "(max-width: 126px) 100vw, 125px",
   }),
   (image4 = {
-    src: "./assets/mountain facing on shore.jpg",
+    src: "./assets/mountain-facing.jpg",
     alt: "mountain facing on shore",
+    srcset:
+      "./assets/mountain-facing.jpg 3840w, ./assets/mountain-facing-1440p.jpg     2560w, ./assets/mountain-facing-1080p.jpg 1920w, ./assets/mountain-facing-hd.jpg 1366w, ./assets/mountain-facing-thumbnail.jpg 125w",
+    sizes: "(max-width: 126px) 100vw, 125px",
   }),
   (image5 = {
-    src: "./assets/Tower bridge under gray sky.jpg",
+    src: "./assets/Tower-bridge.jpg",
     alt: "Tower bridge under gray sky",
+    srcset:
+      "./assets/Tower-bridge.jpg 3840w, ./assets/Tower-bridge-1440p.jpg     2560w, ./assets/Tower-bridge-fullhd.jpg 1920w, ./assets/Tower-bridge-hd.jpg 1366w, ./assets/Tower-bridge-thumbnail.jpg 125w",
+    sizes: "(max-width: 126px) 100vw, 125px",
   }),
 ];
 
@@ -74,6 +86,7 @@ function createThumbnailImages(imagesParam) {
     thumbnail.src = image.src;
     thumbnail.alt = image.alt;
     thumbnail.srcset = image.srcset;
+    thumbnail.sizes = image.sizes;
     thumbnail.tabIndex = 0; // Set tabindex to allow keyboard navigation, starting form 1 so that it is not 0 bc 0 is last in the tab order
     imageSlider.appendChild(thumbnail);
     // Add event listener to the thumbnail images on mouse click
@@ -82,6 +95,7 @@ function createThumbnailImages(imagesParam) {
       image.src = images[currentImage].src;
       image.alt = images[currentImage].alt;
       image.srcset = images[currentImage].srcset;
+      image.sizes = images[currentImage].sizes;
       createImageBackground();
     });
     // Add event listener to the thumbnail images on keyboard enter key
@@ -91,6 +105,7 @@ function createThumbnailImages(imagesParam) {
         image.src = images[currentImage].src;
         image.alt = images[currentImage].alt;
         image.srcset = images[currentImage].srcset;
+        image.sizes = images[currentImage].sizes;
         createImageBackground();
       }
     });
