@@ -4,28 +4,24 @@ const thumbnails = document.querySelectorAll(".image-slider img");
 // Create images array, inside array create objects with src and alt properties
 let images = [
   (image1 = {
-    src: "./assets/image1.jpg",
-    alt: "Image 1",
+    src: "./assets/a green valley with a mountain in the background.jpg",
+    alt: "a green valley with a mountain in the background",
   }),
   (image2 = {
-    src: "./assets/image2.jpg",
-    alt: "Image 2",
+    src: "./assets/aerial view of sea and mountain during sunset.jpg",
+    alt: "aerial view of sea and mountain during sunset",
   }),
   (image3 = {
-    src: "./assets/image3.jpg",
-    alt: "Image 3",
+    src: "./assets/green grass field with trees and white building in distance.jpg",
+    alt: "green grass field with trees and white building in distance",
   }),
   (image4 = {
-    src: "./assets/image4.jpg",
-    alt: "Image 4",
+    src: "./assets/mountain facing on shore.jpg",
+    alt: "mountain facing on shore",
   }),
   (image5 = {
-    src: "./assets/image5.jpg",
-    alt: "Image 5",
-  }),
-  (image6 = {
-    src: "./assets/image6.jpg",
-    alt: "Image 6",
+    src: "./assets/Tower bridge under gray sky.jpg",
+    alt: "Tower bridge under gray sky",
   }),
 ];
 
