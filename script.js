@@ -4,8 +4,10 @@ const thumbnails = document.querySelectorAll(".image-slider img");
 // Create images array, inside array create objects with src and alt properties
 let images = [
   (image1 = {
-    src: "./assets/a green valley with a mountain in the background.jpg",
+    src: "./assets/a green valley with a mountain in the background-4k.jpg",
     alt: "a green valley with a mountain in the background",
+    srcset:
+      "./assets/a green valley with a mountain in the background-4k.jpg    3500w, ./assets/a green valley with a mountain in the background-1440p.jpg    2500w, ./assets/a green valley with a mountain in the background-1080p.jpg    1500w, ./assets/a green valley with a mountain in the background-hd.jpg    1000w, ./assets/a green valley with a mountain in the background-thumbnail.jpg    150w",
   }),
   (image2 = {
     src: "./assets/aerial view of sea and mountain during sunset.jpg",
@@ -59,6 +61,7 @@ function createImageBackground() {
   let image = document.createElement("img");
   image.src = images[currentImage].src;
   image.alt = images[currentImage].alt;
+  image.srcset = images[currentImage].srcset;
   document.body.appendChild(image);
 }
 
@@ -69,6 +72,7 @@ function createThumbnailImages(imagesParam) {
     let thumbnail = document.createElement("img");
     thumbnail.src = image.src;
     thumbnail.alt = image.alt;
+    thumbnail.srcset = image.srcset;
     thumbnail.tabIndex = 0; // Set tabindex to allow keyboard navigation, starting form 1 so that it is not 0 bc 0 is last in the tab order
     imageSlider.appendChild(thumbnail);
     // Add event listener to the thumbnail images on mouse click
@@ -76,6 +80,7 @@ function createThumbnailImages(imagesParam) {
       currentImage = index;
       image.src = images[currentImage].src;
       image.alt = images[currentImage].alt;
+      image.srcset = images[currentImage].srcset;
       createImageBackground();
     });
     // Add event listener to the thumbnail images on keyboard enter key
@@ -84,6 +89,7 @@ function createThumbnailImages(imagesParam) {
         currentImage = index;
         image.src = images[currentImage].src;
         image.alt = images[currentImage].alt;
+        image.srcset = images[currentImage].srcset;
         createImageBackground();
       }
     });
