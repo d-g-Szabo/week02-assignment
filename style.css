@@ -15,23 +15,31 @@ body {
 
 .image-slider {
   position: absolute;
-  top: 3vh;
-  left: 50vw;
+  bottom: 3vh;
+  /* This puts the slider left side in the middle of the screen */
+  left: 50%;
+  /* This moves the slider to the left by half of its width which will make sure that the middle of the slider will be on the middle of the screen */
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
-  overflow: scroll;
-  width: 400px;
-
+  overflow: auto;
+  height: 7vh;
+  width: 350px;
+  border-radius: 5px;
+  background: rgba(43, 44, 44, 0.815);
   /* border-style: solid;
   border-color: aliceblue; */
 }
 
 .image-slider img {
-  height: 70px;
+  /* height: 70px; */
+  height: auto;
+  width: 8vh;
   object-fit: cover;
   object-position: center center;
   margin: 3px;
   cursor: pointer;
+  border-radius: 3px;
 }
 
 body img {
@@ -46,4 +54,18 @@ body img {
   outline: orangered;
   outline-width: 2px;
   outline-style: solid;
+}
+
+/* For Desktop monitors */
+@media (min-width: 768px) {
+  .image-slider {
+    width: 450px;
+    top: 3vh;
+    height: 10vh;
+  }
+
+  .image-slider img {
+    width: auto;
+    height: 70px;
+  }
 }
